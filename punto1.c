@@ -21,19 +21,20 @@ Nodo *CrearListaVacia(); // funcion para crear una lista vacia
 
 Tarea crearTarea(); // funcion para cargar datos de una tarea, retorna tarea
 
+
 int main()
 {
 
     //Nodo *ListaPendientes = CrearListaVacia(); // creo lista de tareas pendientes
 
     //Nodo *ListaRealizadas = CrearListaVacia(); // creo lista de tareas realizadas
-            
+
     return 0;
 }
 
 Nodo *CrearNodo()
 {
-    Nodo * Nnodo = (Nodo *)malloc(sizeof(Nodo));
+    Nodo *Nnodo = (Nodo *)malloc(sizeof(Nodo));
     Nnodo->T = crearTarea();
     Nnodo->Siguiente = NULL;
     return Nnodo;
@@ -59,4 +60,12 @@ Tarea crearTarea()
     printf("Ingrese una duracion: \n");
     scanf("%d", &aux.Duracion);
     return aux;
+}
+
+
+void insertarNodo(Nodo **Start, Nodo *nuevoNodo);
+void insertarNodo(Nodo **Start, Nodo *nuevoNodo)
+{
+    nuevoNodo->Siguiente = *Start;
+    *Start = nuevoNodo;
 }
