@@ -12,14 +12,14 @@ typedef struct Tarea
 typedef struct Nodo
 {
     Tarea T;         // dato
-    //Nodo *Siguiente; // puntero al siguiente
+    Nodo *Siguiente; // puntero al siguiente
 } Nodo;
 
-//Nodo *CrearNodo(Tarea T); // funcion para crear nodo
+Nodo *CrearNodo(); // funcion para crear nodo
 
 Nodo *CrearListaVacia(); // funcion para crear una lista vacia
 
-Tarea CargaDeTarea();
+Tarea crearTarea(); // funcion para cargar datos de una tarea, retorna tarea
 
 int main()
 {
@@ -31,17 +31,20 @@ int main()
     return 0;
 }
 
-/*Nodo *CrearNodo()
+Nodo *CrearNodo()
 {
-    
-}*/
+    Nodo * Nnodo = (Nodo *)malloc(sizeof(Nodo));
+    Nnodo->T = crearTarea();
+    Nnodo->Siguiente = NULL;
+    return Nnodo;
+}
 
 Nodo *CrearListaVacia()
 {
     return NULL;
 }
 
-Tarea CargaDeTarea()
+Tarea crearTarea()
 {
     Tarea aux;
     char descrip[50];
